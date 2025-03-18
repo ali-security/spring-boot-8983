@@ -1,0 +1,38 @@
+{
+  "groups": [],
+  "properties": [
+    {
+      "name": "spring.activemq.pool.create-connection-on-startup",
+      "type": "java.lang.Boolean",
+      "description": "Whether to create a connection on startup. Can be used to warm up the pool on startup.",
+      "defaultValue": true,
+      "deprecation": {
+        "level": "error"
+      }
+    },
+    {
+      "name": "spring.activemq.pool.expiry-timeout",
+      "type": "java.time.Duration",
+      "description": "Connection expiration timeout.",
+      "defaultValue": "0ms",
+      "deprecation": {
+        "level": "error"
+      }
+    },
+    {
+      "name": "spring.activemq.pool.maximum-active-session-per-connection",
+      "deprecation": {
+        "replacement": "spring.activemq.pool.max-sessions-per-connection"
+      }
+    },
+    {
+      "name": "spring.activemq.pool.reconnect-on-exception",
+      "type": "java.lang.Boolean",
+      "description": "Reset the connection when a \"JMSException\" occurs.",
+      "defaultValue": true,
+      "deprecation": {
+        "level": "error"
+      }
+    }
+  ]
+}
