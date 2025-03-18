@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2022 the original author or authors.
+ * Copyright 2012-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.autoconfigure.jms;
+package org.springframework.boot.jms.autoconfigure;
 
 import java.time.Duration;
+
+import org.springframework.boot.context.properties.ConfigurationPropertiesSource;
 
 /**
  * Configuration properties for connection factory pooling.
@@ -24,6 +26,7 @@ import java.time.Duration;
  * @author Stephane Nicoll
  * @since 2.1.0
  */
+@ConfigurationPropertiesSource
 public class JmsPoolConnectionFactoryProperties {
 
 	/**
