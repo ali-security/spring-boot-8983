@@ -14,32 +14,6 @@
       "defaultValue": true
     },
     {
-      "name": "spring.artemis.broker-url",
-      "defaultValue": "tcp://localhost:61616"
-    },
-    {
-      "name": "spring.artemis.host",
-      "type": "java.lang.String",
-      "deprecation": {
-        "replacement": "spring.artemis.broker-url",
-        "level": "error"
-      }
-    },
-    {
-      "name": "spring.artemis.pool.maximum-active-session-per-connection",
-      "deprecation": {
-        "replacement": "spring.artemis.pool.max-sessions-per-connection"
-      }
-    },
-    {
-      "name": "spring.artemis.port",
-      "type": "java.lang.Integer",
-      "deprecation": {
-        "replacement": "spring.artemis.broker-url",
-        "level": "error"
-      }
-    },
-    {
       "name": "spring.batch.initialize-schema",
       "type": "org.springframework.boot.sql.init.DatabaseInitializationMode",
       "deprecation": {
