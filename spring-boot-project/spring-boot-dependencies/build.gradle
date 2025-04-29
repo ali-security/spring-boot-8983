@@ -2102,7 +2102,8 @@ bom {
 				"spring-boot-undertow",
 				"spring-boot-validation",
 				"spring-boot-webflux",
-				"spring-boot-webmvc"
+				"spring-boot-webmvc",
+				"spring-boot-websocket"
 			]
 			plugins = [
 				"spring-boot-maven-plugin"
