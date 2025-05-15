@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: build
-        run: ./gradlew -Dorg.gradle.internal.launcher.welcomeMessageEnabled=false --no-daemon --max-workers=4 build
+        run: ./gradlew -Dorg.gradle.internal.launcher.welcomeMessageEnabled=false --max-workers=4 --no-daemon build -x asciidoctorPdf -x asciidoctor
 
   upload_jars:
     name: "Upload Jars"
