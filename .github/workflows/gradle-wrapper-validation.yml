@@ -11,9 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: gradle/wrapper-validation-action@v1
+      
   upload_jars:
     name: "Upload Jars"
-    uses: actions/upload-artifact@v4
-    with:
-        name: "jars"
-        path: "**/*.jar"
+    needs: validation  # Make this job depend on the 'validation' job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: "jars"
+          path: "**/*.jar"
