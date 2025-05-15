@@ -19,10 +19,8 @@ jobs:
     container: springci/spring-boot-ci:2.7.x  # Specify the Docker image to use
     steps:
       - uses: actions/checkout@v3
-      - name: Set execute permission for build script (if needed)
-        run: chmod +x ci/scripts/build-project.sh
-      - name: Run build script in Docker container
-        run: ci/scripts/build-project.sh
+      - name: build
+        run: ./gradlew -Dorg.gradle.internal.launcher.welcomeMessageEnabled=false --no-daemon --max-workers=4 build
 
   upload_jars:
     name: "Upload Jars"
