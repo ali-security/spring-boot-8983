@@ -11,14 +11,39 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: gradle/wrapper-validation-action@v1
-      
-  upload_jars:
-    name: "Upload Jars"
-    needs: validation  # Make this job depend on the 'validation' job
+
+  check_location:
+    name: "Check location"
+    needs: validation  # Only run if validation succeeds
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: pwd
+        run: pwd
+      - name: ls
+        run: ls
+      
+  build_project:
+    name: "Build Project"
+    needs: validation  # Only run if validation succeeds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set execute permission for build script
+        run: chmod +x ci/scripts/build-project.sh
+      - name: Run build script
+        run: ci/scripts/build-project.sh
+
+  upload_jars:
+    name: "Upload Jars"
+    needs: build_project  # Only run if build succeeds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build with Gradle (if not done in build_project.sh)
+        run: ./gradlew build # Or your specific Gradle build command if needed
       - uses: actions/upload-artifact@v4
         with:
           name: "jars"
           path: "**/*.jar"
+      
